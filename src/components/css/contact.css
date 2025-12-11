@@ -8,6 +8,8 @@
     /* opacity: 0;
     transform: translateY(2rem);
     animation: fadeSlide 0.8s ease forwards; */
+    animation: fadeIn 0.8s ease forwards;
+
 }
 
 /* @keyframes fadeSlide {

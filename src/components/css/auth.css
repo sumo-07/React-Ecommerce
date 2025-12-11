@@ -6,6 +6,8 @@
     border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease forwards;
+
 }
 
 /* Left Section */
@@ -13,7 +15,7 @@
     flex: 1;
     background: linear-gradient(135deg, #1e90ff, #0066ff);
     color: #fff;
-    padding: 4rem 3rem; 
+    padding: 4rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

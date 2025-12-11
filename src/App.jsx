@@ -12,6 +12,7 @@ import "./App.css"
 import { Login } from "./Pages/Login";
 import { Signup } from "./Pages/Signup";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,7 @@ const queryClient = new QueryClient();
 const App = () => {
   return <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 }
 

@@ -4,5 +4,5 @@ const api= axios.create({
 });
 
 export const getProductData= ()=>{
-    return api.get("/products?limit=16")
+    return api.get("/products?limit=200")
 }

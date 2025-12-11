@@ -184,10 +184,16 @@
 
 /* Footer end */
 
+/* AppLayout CSS start */
 /* Animation for all pages */
 .page-transition {
     opacity: 0;
     transform: translateY(2rem);
+    
+    
+}
+
+.page-transition.animate{
     animation: fadeInPage 0.8s ease forwards;
 }
 
@@ -202,3 +208,5 @@
         transform: translateY(0);
     }
 }
+
+/* AppLayout CSS end */
