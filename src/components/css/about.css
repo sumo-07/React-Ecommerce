@@ -1,0 +1,62 @@
+.about-page {
+  margin-top: 0.1rem;
+
+  padding-bottom: 8rem;
+  /* animation: fadeIn 0.8s ease forwards; */
+}
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+.light-bg {
+  background: linear-gradient(135deg,
+      #faf7f2 0%,
+      #fff7ea 50%,
+      #ffffff 100%);
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+  padding: 8rem 0;
+}
+
+.about-section.reverse {
+  flex-direction: reverse;
+}
+
+.about-text {
+  max-width: 55rem;
+
+  & h1,
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #1b1b1b;
+    margin-bottom: 2rem;
+  }
+
+  & p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #4b4b4b;
+  }
+}
+
+.about-image img {
+  width: 45rem;
+  border-radius: 1.6rem;
+  object-fit: cover;
+  filter: drop-shadow(0 0.5rem 2rem rgba(0, 0, 0, 0.1));
+}

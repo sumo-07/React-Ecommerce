@@ -1,0 +1,134 @@
+.contact-page {
+    margin-top: 6rem;
+    padding: 6rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+
+    /* opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeSlide 0.8s ease forwards; */
+}
+
+/* @keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+/* left section */
+.contact-left {
+    flex: 1;
+
+    & h2 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #1b1b1b;
+    }
+
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 36rem;
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+/* Social Section */
+.contact-left h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1b1b1b;
+}
+
+.contact-socials {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 2.2rem;
+    color: #444;
+
+    & svg {
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+            color: #000;
+        }
+    }
+}
+
+.copy {
+    margin-top: 4rem;
+    font-size: 1.4rem;
+    color: #777;
+}
+
+/* Right Section (form) */
+.contact-right {
+    flex: 1;
+
+    & h2 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #1b1b1b;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    & label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #222;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 1.4rem;
+        border-radius: 0.6rem;
+        border: 1px solid #dcdcdc;
+        background: #f6f6f6;
+        transition: 0.3s ease;
+        font-family: monospace, sans-serif;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #000;
+        outline: none;
+        background: #fff;
+    }
+
+    button {
+        width: 14rem;
+        padding: 1.4rem;
+        font-size: 1.6rem;
+        border-radius: 0.6rem;
+        border: 1px solid #000;
+        background: #ffffff;
+        cursor: pointer;
+        transition: 0.3s ease;
+        margin-top: 1rem;
+
+        &:hover {
+            background-color: #000;
+            color: #ffffff;
+        }
+    }
+}

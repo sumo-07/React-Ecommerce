@@ -1,0 +1,204 @@
+/* ---- NAVBAR ---- */
+.section-navbar {
+    background-color: #fff;
+    /* border-bottom: 1px solid #ddd; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    /* margin-bottom: 6rem; */
+}
+
+.section-navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.navbar-brand img {
+    max-width: 6.2rem;
+    height: auto;
+    transform: scaleX(-1);
+}
+
+.navbar-brand .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    text-decoration: none;
+
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    font-family: "Poppins", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand .brand-link:hover .brand-name {
+    color: #950e39;
+}
+
+
+
+/* Nav Links */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 3.2rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.4rem;
+
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0.2rem;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+
+}
+
+/* hover underline */
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.navbar a.active {
+    color: #007bff;
+
+    &::after {
+        width: 100%;
+    }
+}
+
+/* Navbar end */
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 4rem 0;
+    margin-top: 6rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.footer-left {
+    max-width: 50rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 1.6rem;
+}
+
+.footer-brand-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.footer-brand:hover .footer-brand-name {
+    color: #950e39;
+    cursor: pointer;
+}
+
+.footer-logo {
+    max-width: 6.2rem;
+    height: auto;
+    transform: scaleX(-1);
+
+}
+
+
+.footer-text {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    margin-bottom: 2.4rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 2rem;
+    font-size: 2.4rem;
+}
+
+.social-icons a {
+    color: #fff;
+    transition: 0.3s;
+
+    &:hover {
+        color: #007bff;
+    }
+}
+
+.footer-right {
+    text-align: right;
+
+
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+}
+
+.footer-right a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #fff;
+    transition: 0.3s;
+
+    &:hover {
+        color: #007bff;
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.4rem;
+    padding-top: 2.4rem;
+    border-top: 0.1rem solid #333;
+}
+
+/* Footer end */
+
+/* Animation for all pages */
+.page-transition {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInPage 0.8s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
