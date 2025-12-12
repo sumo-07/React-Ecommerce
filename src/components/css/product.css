@@ -30,6 +30,16 @@
     }
 }
 
+.product-category-filter{
+    display: block;
+    padding: 1rem 1.4rem;
+    font-size: 1.6rem;
+    margin: 0 0 2rem 0;
+    border: 1px solid #ddd;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));

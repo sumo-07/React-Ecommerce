@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
-import { getProductData } from "../api/postApi";
+import { getCategories, getProductData } from "../api/postApi";
 import { ProductCard } from "../components/UI/ProductCard";
 import "../components/css/product.css"
 import { useEffect, useState } from "react";
 export const Products = () => {
 
+    // search
     const [search, setSearch] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -18,6 +19,10 @@ export const Products = () => {
     }, [search]);
 
 
+    // category
+    const [selectedCategory, setSelectedCategory]= useState("all");
+
+    // useQuery for products
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["products"],
         queryFn: getProductData,
@@ -27,6 +32,16 @@ export const Products = () => {
         staleTime: Infinity,
         cacheTime: Infinity,
     });
+
+    
+
+    // useQuery for categories
+    const { data: categoryData }= useQuery({
+        queryKey: ["categories"],
+        queryFn: getCategories,
+        staleTime: Infinity,
+        cacheTime: Infinity
+    })
 
     if (isLoading) {
         return (
@@ -47,11 +62,22 @@ export const Products = () => {
     const products = data.data.products;
     console.log("products= ", products);
 
-    //search
+    console.log("category data= ",categoryData);
+
+
+    
+
+    //search logic & category logic
     const filteredProducts = products.filter((item) => {
-        const titleMatch= item.title.toLowerCase().includes(searchQuery.toLowerCase())
-        const categoryMatch= item.category.toLowerCase().includes(searchQuery.toLowerCase())
-        return titleMatch || categoryMatch;
+        const query= searchQuery.toLowerCase();
+        
+        const titleMatch= item.title.toLowerCase().includes(query);
+        const categoryMatch= item.category.toLowerCase().includes(query);
+
+        const matchesSearch= titleMatch || categoryMatch;
+
+        const matchesCategory= selectedCategory === "all" || item.category === selectedCategory;
+        return matchesSearch && matchesCategory;
     });
 
 
@@ -63,6 +89,15 @@ export const Products = () => {
             {/* Search */}
             <input id="search" type="text" placeholder="Search products..." className="product-search" value={search} onChange={(e) => setSearch(e.target.value)} />
 
+            {/* Category filter */}
+            <select id="category" className="product-category-filter" value={selectedCategory} onChange={(e)=> setSelectedCategory(e.target.value)} >
+                <option value="all">All Categories</option>
+                {categoryData?.data?.map((categ)=> (
+                    <option key={categ.slug} value={categ.slug} >
+                        {categ.name}
+                    </option>
+                ))}
+            </select>
 
             <ul className="product-grid">
                 {filteredProducts.map((currProd) => {
