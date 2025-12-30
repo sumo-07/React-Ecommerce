@@ -14,6 +14,11 @@
     color: #111;
 }
 
+.filter-container{
+    display: flex;
+    gap: 1.6rem;
+}
+
 .product-search {
     width: 100%;
     padding: 1.2rem 1.6rem;
@@ -30,6 +35,7 @@
     }
 }
 
+.product-sort-filter,
 .product-category-filter{
     display: block;
     padding: 1rem 1.4rem;
