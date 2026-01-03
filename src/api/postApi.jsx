@@ -12,3 +12,8 @@ export const getProductData= ()=>{
 export const getCategories= ()=>{
     return api.get("/products/categories");
 }
+
+// get individual products
+export const getSingleProduct= (id)=>{
+    return api.get(`/products/${id}`);
+}
