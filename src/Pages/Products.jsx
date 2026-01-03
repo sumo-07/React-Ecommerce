@@ -76,24 +76,6 @@ export const Products = () => {
 
 
         //Sorting Logic
-        // if (sortPrice === "price-low-high") {
-        //     result.sort((a, b) => a.price - b.price);
-        // }
-
-        // if (sortPrice === "price-high-low") {
-        //     result.sort((a, b) => b.price - a.price);
-        // }
-
-        // if (sortRating === "rating-high-low") {
-        //     result.sort((a, b) => b.rating - a.rating);
-        // }
-
-        // if (sortRating === "rating-low-high") {
-        //     result.sort((a, b) => a.rating - b.rating);
-        // }
-
-        // return result;
-
         result.sort((a, b) => {
 
             //price is primary
