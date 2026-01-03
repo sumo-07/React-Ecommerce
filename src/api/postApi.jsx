@@ -5,7 +5,7 @@ const api= axios.create({
 
 //get products
 export const getProductData= ()=>{
-    return api.get("/products?limit=16")
+    return api.get("/products?limit=200")
 }
 
 //get categories of the products

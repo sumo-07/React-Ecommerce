@@ -26,6 +26,10 @@ export const Products = () => {
     const [sortPrice, setSortPrice] = useState("");
     const [sortRating, setSortRating] = useState("");
 
+    // Pagination
+    const [currentPage, setCurrentPage]= useState(1);
+    const PRODUCTS_PER_PAGE= 12;
+
     // useQuery for products
     const { data, isLoading: productLoading, isError: productError, error } = useQuery({
         queryKey: ["products"],
@@ -38,7 +42,6 @@ export const Products = () => {
     });
 
 
-
     // useQuery for categories
     const { data: categoryData, isLoading: categoryLoading, isError: categoryError } = useQuery({
         queryKey: ["categories"],
@@ -46,7 +49,6 @@ export const Products = () => {
         staleTime: Infinity,
         cacheTime: Infinity
     })
-
 
 
     const products = data?.data?.products ?? [];
@@ -108,6 +110,20 @@ export const Products = () => {
     }, [products, searchQuery, selectedCategory, sortPrice, sortRating]);
 
 
+    // Pagination Logic
+    const totalPages= Math.ceil(filteredProducts.length/PRODUCTS_PER_PAGE);
+
+    const paginatedProducts= useMemo(()=> {
+        const start= (currentPage - 1) * PRODUCTS_PER_PAGE;
+        const end= start + PRODUCTS_PER_PAGE;
+        return filteredProducts.slice(start,end);
+    }, [filteredProducts, currentPage]);
+
+    useEffect(()=> {
+        setCurrentPage(1);
+    }, [searchQuery, selectedCategory, sortPrice, sortRating]);
+
+
 
     if (productLoading) {
         return (
@@ -124,7 +140,6 @@ export const Products = () => {
             </div>
         );
     }
-
 
     return (
         <main className="container product-page">
@@ -169,10 +184,34 @@ export const Products = () => {
             </div>
 
             <ul className="product-grid">
-                {filteredProducts.map((currProd) => {
+                {paginatedProducts.map((currProd) => {
                     return <ProductCard key={currProd.id} product={currProd} />
                 })}
             </ul>
+
+            <div className="pagination">
+                <button 
+                disabled= {currentPage == 1} 
+                onClick={()=> setCurrentPage((p)=> p-1)}
+                >
+                    Prev
+                </button>
+
+                {Array.from({length: totalPages}, (_,i)=> (
+                    <button 
+                    key={i}
+                    className={currentPage == i+1 ? "active" : ""}
+                    onClick={()=> setCurrentPage(i+1)}
+                    >
+                        {i+1}
+                    </button>
+                ))}
+                <button disabled={currentPage === totalPages}
+                onClick={()=> setCurrentPage((p)=> p+1)}
+                >
+                    Next
+                </button>
+            </div>
         </main>
     );
 }
