@@ -39,6 +39,7 @@
     margin-bottom: 0.4rem;
 
     & span {
+        text-transform: capitalize;
         font-weight: 600;
         color: #374151;
     }
