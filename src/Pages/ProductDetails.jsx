@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import "../components/css/productDetails.css"
 import { getSingleProduct } from "../api/postApi";
 import { FaStar } from "react-icons/fa";
+import { addToCart } from "./cartUtil";
 export const ProductDetails= ()=>{
 
     const {id}= useParams();
@@ -81,7 +82,7 @@ export const ProductDetails= ()=>{
                         <p><strong>Return Policy:</strong> {product.returnPolicy}</p>
                      </div>
 
-                    <button className="add-to-cart-btn">
+                    <button className="add-to-cart-btn" onClick={()=> addToCart(product)}>
                         Add to Cart
                     </button>
                 </div>
