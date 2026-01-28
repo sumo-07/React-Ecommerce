@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import "../components/css/productDetails.css"
 import { getSingleProduct } from "../api/postApi";
 import { FaStar } from "react-icons/fa";
-import { addToCart } from "./cartUtil";
+import { IoArrowBack } from "react-icons/io5";
+// import { addToCart } from "./cartUtil";
+import { CartControls } from "../components/UI/CartControls";
 export const ProductDetails= ()=>{
 
     const {id}= useParams();
@@ -14,6 +16,8 @@ export const ProductDetails= ()=>{
         queryFn: ()=> getSingleProduct(id),
         staleTime: Infinity,
     });
+
+    const navigate= useNavigate();
 
     if(isLoading){
         return <h2 className="loading">Loading product...</h2>
@@ -29,6 +33,11 @@ export const ProductDetails= ()=>{
 
     return(
         <main className="container product-details-page">
+
+            <button className="go-back-btn" onClick={()=> navigate(-1)}>
+                <IoArrowBack /> Back to Products
+            </button>
+
             <div className="product-details-card">
 
                 {/* Image */}
@@ -82,9 +91,12 @@ export const ProductDetails= ()=>{
                         <p><strong>Return Policy:</strong> {product.returnPolicy}</p>
                      </div>
 
-                    <button className="add-to-cart-btn" onClick={()=> addToCart(product)}>
+                    {/* <button className="add-to-cart-btn" onClick={()=> addToCart(product)}>
                         Add to Cart
-                    </button>
+                    </button> */}
+
+                    <CartControls product={product} />
+                    
                 </div>
             </div>
         </main> 

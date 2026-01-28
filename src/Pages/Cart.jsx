@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getCart, removeFromCart, updateQuantity } from "./cartUtil"
 import "../components/css/cart.css"
+import { MdDeleteOutline } from "react-icons/md";
 
 export const Cart = () => {
     const [cart, setCart] = useState([]);
@@ -54,7 +55,9 @@ export const Cart = () => {
                                             <button onClick={() => handleQuantity(item.id, 1)}> + </button>
                                         </div>
 
-                                        <button className="remove-btn" onClick={() => handleRemove(item.id)}> Remove </button>
+                                        <button className="remove-btn" onClick={() => handleRemove(item.id)}> 
+                                            <MdDeleteOutline />    
+                                        </button>
                                     </div>
                                 </li>
                             );

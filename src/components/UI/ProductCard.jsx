@@ -1,7 +1,9 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
 import {NavLink}  from "react-router-dom"
 import { addToCart } from "../../Pages/cartUtil";
+import { CartControls } from "./CartControls";
 // import "../css/product.css"
+
 export const ProductCard= ({product})=>{
     const {id, title, price, thumbnail, category, rating}= product;
 
@@ -42,7 +44,8 @@ export const ProductCard= ({product})=>{
                         <span className="product-label">Price:</span> ₹ {price}
                     </p>
                     
-                    <button className="product-add-to-cart-btn" onClick={()=> addToCart(product)}>Add to Cart</button>
+                    {/* <button className="product-add-to-cart-btn" onClick={()=> addToCart(product)}>Add to Cart</button> */}
+                    <CartControls product={product} />
 
                     <NavLink to={`/product/${id}`} >
                     <button className="product-btn" >Read More</button></NavLink>
