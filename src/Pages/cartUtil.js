@@ -85,7 +85,7 @@ export const updateQuantity= (id, amount)=>{
 //check if product exist (dynamic add to cart behavior for - qty + and remove button)
 export const getCartItem= (id)=> {
     const cart= getCart();
-    return cart.find(item => item.id === id);
+    return cart.find(item => item.id === id); //returns undefined if product is not in the cart
 }
 
 
