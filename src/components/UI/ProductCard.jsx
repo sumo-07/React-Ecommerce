@@ -47,7 +47,7 @@ export const ProductCard= ({product})=>{
                     {/* <button className="product-add-to-cart-btn" onClick={()=> addToCart(product)}>Add to Cart</button> */}
                     <CartControls product={product} />
 
-                    <NavLink to={`/product/${id}`} >
+                    <NavLink to={`/product/${id}`} className= "product-navlink">
                     <button className="product-btn" >Read More</button></NavLink>
                 </div>
             </div>

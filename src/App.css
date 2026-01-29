@@ -4,12 +4,13 @@
     /* border-bottom: 1px solid #ddd; */
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     /* margin-bottom: 6rem; */
+    padding: 1.6rem 0; 
 }
 
 .section-navbar .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;   
 }
 
 /* Logo */
