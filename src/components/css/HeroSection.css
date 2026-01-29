@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7rem 8%;
+    padding: 7rem 8rem;
     gap: 4rem;
     background: linear-gradient(135deg,
             #f8fbff 0%,
@@ -67,7 +67,8 @@
         background-color: #1e4cd6;
         transform: translateY(-0.2rem);
     }
-    &:active{
+
+    &:active {
         transform: translateY(0);
         box-shadow: 0 0.3rem 0.8rem rgba(0, 123, 255, 0.25);
     }
@@ -80,5 +81,69 @@
     filter: drop-shadow(0 0.5rem 2.2rem rgba(0, 0, 0, 0.15));
 }
 
+/* Large devices */
+@media (max-width: 72rem){
+    /* 1150 / 16 =  72 */
+    /* 72 * 16 =  1152px*/
+
+    html{
+        /* 9 / 16 =  56.25% */
+        font-size:  56.25%;
+    }
+
+    .hero{
+        padding: 4rem 5rem;
+        gap: 3rem;
+    }
+
+    .hero-image img{
+        width: 42rem;
+    }
+}
+
+/* medium */
+@media (max-width: 55rem){
+    /* 876 / 16 = 55 */
+    /* 55 x  16 = 880 */
+
+    
+    .hero-content{
+        max-width: 100%;
+
+        & h1{
+            font-size: 2.8rem;
+        }
+
+        & p{
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero-image img{
+        width: 100%;
+        max-width: 50rem;
+    }
+}
 
 
+/* small */
+@media (max-width: 38rem){
+    /* 600 / 16 = 38 */
+    /* 38 x 16 = 608px */
+
+    .hero{
+        padding: 3rem 2rem;
+        gap: 2.5rem;
+    }
+
+    .hero-content{
+        & h1{
+            font-size: 2.4rem;
+        }
+    }
+
+    .hero-btn{
+        padding: 1.2rem 2.8rem;
+        font-size: 1.4rem;
+    }
+}
