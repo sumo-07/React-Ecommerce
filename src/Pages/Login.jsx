@@ -28,7 +28,7 @@ export const Login = () => {
                         <button className="auth-btn">Login</button>
                     </form>
                     <p className="or">or login with</p>
-                    <div className="social-icons">
+                    <div className="auth-social-icons">
                         <FaFacebookF />
                         <FaGoogle />
                         <FaLinkedin />

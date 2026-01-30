@@ -36,7 +36,7 @@ export const Footer = () => {
             </div>
 
             <div className="footer-bottom">
-                © {new Date().getFullYear()} Your Store — All Rights Reserved.
+                © {new Date().getFullYear()} ShopEzzz — All Rights Reserved.
             </div>
         </footer >
     );

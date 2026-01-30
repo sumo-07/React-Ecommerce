@@ -1,6 +1,20 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import logo from "../../images/websiteLogo.webp"
+import { useEffect, useState } from "react"
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoCloseOutline } from "react-icons/io5";
 export const Header = () => {
+
+    const [menuOpen, setMenuOpen]= useState(false);
+
+    // to close the menu after path changes
+    const location= useLocation();
+    // console.log("location= ", location);
+
+    useEffect(()=> {
+        setMenuOpen(false);
+    },[location.pathname]);
+
     return (
         <header className="section-navbar">
             <div className="container">
@@ -12,7 +26,12 @@ export const Header = () => {
                     
                 </div>
 
-                <nav className="navbar">
+                {/* Hamburger menu */}
+                <button className="hamburger" onClick={()=> setMenuOpen(!menuOpen)}>
+                    {menuOpen ? <IoCloseOutline /> : <RxHamburgerMenu /> }
+                </button>
+
+                <nav className={`navbar ${menuOpen ? "active" : ""}`}>
                     <ul>
                         <li className="nav-item"> 
                             <NavLink to="/" className="nav-link">Home</NavLink> </li>

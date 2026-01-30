@@ -4,13 +4,16 @@
     /* border-bottom: 1px solid #ddd; */
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     /* margin-bottom: 6rem; */
-    padding: 1.6rem 0; 
+    padding: 1.6rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1003;
 }
 
 .section-navbar .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
 }
 
 /* Logo */
@@ -40,6 +43,16 @@
     color: #950e39;
 }
 
+/* hamburger menu */
+.hamburger {
+    display: none;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0a2342;
+
+}
 
 
 /* Nav Links */
@@ -190,11 +203,11 @@
 .page-transition {
     opacity: 0;
     transform: translateY(2rem);
-    
-    
+
+
 }
 
-.page-transition.animate{
+.page-transition.animate {
     animation: fadeInPage 0.8s ease forwards;
 }
 
@@ -211,3 +224,66 @@
 }
 
 /* AppLayout CSS end */
+
+
+/* media queries */
+@media (max-width: 48rem) {
+    /* 768 / 16 = 48 */
+    /* 48 x 16 = 768px */
+
+    .hamburger {
+        display: block;
+        z-index: 1004;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+
+        &:active{
+            transform: scale(0.9);
+            opacity: 0.8;
+        }
+
+        & svg {
+            font-size: 3.4rem;
+        }
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 2.4rem;
+        align-items: center;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 9.5rem;
+        right: 1.6rem;
+        background-color: #fff;
+        border-radius: 1.2rem;
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 12px 30px;
+        padding: 2.4rem 0;
+        width: calc(100% - 3.2rem);
+        max-width: 22rem;
+
+        z-index: 1003;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.8rem);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+
+        }
+
+        & a {
+            font-size: 1.9rem;
+        }
+
+    }
+}

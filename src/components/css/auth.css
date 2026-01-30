@@ -100,7 +100,7 @@
     color: #777;
 }
 
-.social-icons {
+.auth-social-icons {
     display: flex;
     justify-content: center;
     gap: 2rem;
