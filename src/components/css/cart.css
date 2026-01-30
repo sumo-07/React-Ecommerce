@@ -1,5 +1,6 @@
 .cart-page {
     padding: 1.6rem 2.4rem;
+
     & h1 {
         text-align: center;
         margin-bottom: 3rem;
@@ -60,9 +61,14 @@
         font-size: 1.6rem;
         border-radius: 6px;
         cursor: pointer;
+        transition: transform 0.15s ease;
 
         &:hover {
             background-color: #000;
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
     }
 
@@ -74,7 +80,7 @@
     }
 }
 
-.remove-btn{
+.remove-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,18 +94,19 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.15s ease;
 
-    & svg{
+    & svg {
         font-size: 1.6rem;
     }
 
-    &:hover{
+    &:hover {
         background-color: #c1121f;
     }
 
-    &:active{
+    &:active {
         transform: scale(0.95);
     }
-    &:focus-visible{
+
+    &:focus-visible {
         outline: 2px solid #c1121f;
         outline-offset: 2px;
     }
@@ -121,7 +128,7 @@
 }
 
 /* empty cart */
-.empty-cart{
+.empty-cart {
     text-align: center;
     font-size: 1.4rem;
     color: #555;
@@ -130,14 +137,8 @@
 
 
 /* CartControls css */
-.cart-qty-wrapper{
+.cart-qty-wrapper {
     display: flex;
     flex-direction: column;
 
 }
-
-
-
-
-
-
