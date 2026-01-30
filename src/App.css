@@ -168,7 +168,10 @@
 
 .footer-right {
     text-align: right;
-
+    padding-top: 1rem;
+    & li{
+        margin-bottom: 0.2rem;
+    }
 
 }
 
@@ -182,6 +185,7 @@
     font-size: 1.6rem;
     color: #fff;
     transition: 0.3s;
+    
 
     &:hover {
         color: #007bff;
