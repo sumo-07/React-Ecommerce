@@ -132,6 +132,8 @@
     /* 38 x 16 = 608px */
 
     .hero{
+        min-height: auto;
+        flex-direction: column-reverse;
         padding: 3rem 2rem;
         gap: 2.5rem;
     }
@@ -147,3 +149,4 @@
         font-size: 1.4rem;
     }
 }
+
