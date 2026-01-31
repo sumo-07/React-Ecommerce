@@ -4,10 +4,11 @@ import { ProductCard } from "../components/UI/ProductCard";
 import "../components/css/product.css"
 import { useEffect, useMemo, useState } from "react";
 import { IoIosSettings } from "react-icons/io";
+import { IoCloseOutline } from "react-icons/io5";
 export const Products = () => {
 
     // filters
-    const [showFilters, setShowFilters]= useState(false);
+    const [showFilters, setShowFilters] = useState(false);
 
     // search
     const [search, setSearch] = useState("");
@@ -31,8 +32,8 @@ export const Products = () => {
     const [sortRating, setSortRating] = useState("");
 
     // Pagination
-    const [currentPage, setCurrentPage]= useState(1);
-    const PRODUCTS_PER_PAGE= 12;
+    const [currentPage, setCurrentPage] = useState(1);
+    const PRODUCTS_PER_PAGE = 12;
 
     // useQuery for products
     const { data, isLoading: productLoading, isError: productError, error } = useQuery({
@@ -86,23 +87,23 @@ export const Products = () => {
 
             //price is primary
             if (activeSort === "price-low-high") {
-                if(a.price!= b.price) return a.price - b.price;
+                if (a.price != b.price) return a.price - b.price;
                 return b.rating - a.rating; // tie breaker
             }
 
             if (activeSort === "price-high-low") {
-                if(a.price!= b.price) return b.price - a.price;
+                if (a.price != b.price) return b.price - a.price;
                 return b.rating - a.rating; // tie breaker
             }
 
             //rating is primary
-            if(activeSort === "rating-high-low"){
-                if(a.rating != b.rating) return b.rating - a.rating;
+            if (activeSort === "rating-high-low") {
+                if (a.rating != b.rating) return b.rating - a.rating;
                 return a.price - b.price; // tie breaker
             }
 
-            if(activeSort === "rating-low-high"){
-                if(a.rating != b.rating) return a.rating - b.rating;
+            if (activeSort === "rating-low-high") {
+                if (a.rating != b.rating) return a.rating - b.rating;
                 return a.price - b.price; // tie breaker
             }
 
@@ -115,32 +116,32 @@ export const Products = () => {
 
 
     // Pagination Logic
-    const totalPages= Math.ceil(filteredProducts.length/PRODUCTS_PER_PAGE);
+    const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
 
-    const paginatedProducts= useMemo(()=> {
-        const start= (currentPage - 1) * PRODUCTS_PER_PAGE;
-        const end= start + PRODUCTS_PER_PAGE;
-        return filteredProducts.slice(start,end);
+    const paginatedProducts = useMemo(() => {
+        const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+        const end = start + PRODUCTS_PER_PAGE;
+        return filteredProducts.slice(start, end);
     }, [filteredProducts, currentPage]);
 
-    useEffect(()=> {
+    useEffect(() => {
         setCurrentPage(1);
     }, [searchQuery, selectedCategory, sortPrice, sortRating]);
 
 
     // pagination responsive logic
-    const MAX_VISIBLE_PAGES= 5;
-    const getVisiblePages= ()=> {
-        const pages= [];
-        let start= Math.max(1, currentPage - Math.floor(MAX_VISIBLE_PAGES / 2));
-        let end= start + MAX_VISIBLE_PAGES - 1;
+    const MAX_VISIBLE_PAGES = 5;
+    const getVisiblePages = () => {
+        const pages = [];
+        let start = Math.max(1, currentPage - Math.floor(MAX_VISIBLE_PAGES / 2));
+        let end = start + MAX_VISIBLE_PAGES - 1;
 
-        if(end > totalPages){
-            end= totalPages;
-            start= Math.max(1, end - MAX_VISIBLE_PAGES + 1);
+        if (end > totalPages) {
+            end = totalPages;
+            start = Math.max(1, end - MAX_VISIBLE_PAGES + 1);
         }
 
-        for(let i= start; i<= end; i++){
+        for (let i = start; i <= end; i++) {
             pages.push(i);
         }
 
@@ -169,43 +170,51 @@ export const Products = () => {
         <main className="container product-page">
             <h1 className="product-title">Our Products</h1>
 
-            {/* Search */}
-            <input id="search" type="text" placeholder="Search products..." className="product-search" value={search} onChange={(e) => setSearch(e.target.value)} />
 
-            <div className="filter-container">
-                {/* Category filter */}
-                <select id="category" className="product-category-filter" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} >
-                    <option value="all">All Categories</option>
-                    {categoryData?.data?.map((categ) => (
-                        <option key={categ.slug} value={categ.slug} >
-                            {categ.name}
-                        </option>
-                    ))}
-                </select>
+            <div className="product-search-with-filter">
+                {/* Search */}
+                <input id="search" type="search" placeholder="Search products..." className="product-search" value={search} onChange={(e) => setSearch(e.target.value)} />
 
+                <button className="product-filter-toggle-btn" onClick={() => setShowFilters(!showFilters)} aria-label={showFilters ? "Close Filters" : "Open Filters"}>
+                    {showFilters ? <IoCloseOutline /> : <IoIosSettings />}
+                </button>
+                <div className={`product-filter-drawer ${showFilters ? "open" : ""}`}>
+                    <h3>Filters</h3>
 
-                {/* Sort by price */}
-                <select id="sort-price" className="product-sort-filter" value={sortPrice} 
-                    onChange={(e) => {
-                        setSortPrice(e.target.value); 
-                        setSortRating("");
-                }}  >
-                    <option value="">Sort by Price</option>
-                    <option value="price-low-high">Price: Low → High</option>
-                    <option value="price-high-low">Price: High → Low</option>
-                </select>
+                    {/* Category filter */}
+                    <select id="category" className="product-category-filter" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} >
+                        <option value="all">All Categories</option>
+                        {categoryData?.data?.map((categ) => (
+                            <option key={categ.slug} value={categ.slug} >
+                                {categ.name}
+                            </option>
+                        ))}
+                    </select>
 
-                {/* Sort by rating */}
-                <select id="sort-rating" className="product-category-filter" value={sortRating} 
-                onChange={(e) => {
-                    setSortRating(e.target.value)
-                    setSortPrice("");     
-                }} >
-                    <option value="">Sort by Rating</option>
-                    <option value="rating-low-high">Rating: Low → High</option>
-                    <option value="rating-high-low">Rating: High → Low</option>
-                </select>
+                    {/* Sort by price */}
+                    <select id="sort-price" className="product-sort-filter" value={sortPrice}
+                        onChange={(e) => {
+                            setSortPrice(e.target.value);
+                            setSortRating("");
+                        }}  >
+                        <option value="">Sort by Price</option>
+                        <option value="price-low-high">Price: Low → High</option>
+                        <option value="price-high-low">Price: High → Low</option>
+                    </select>
+
+                    {/* Sort by rating */}
+                    <select id="sort-rating" className="product-category-filter" value={sortRating}
+                        onChange={(e) => {
+                            setSortRating(e.target.value)
+                            setSortPrice("");
+                        }} >
+                        <option value="">Sort by Rating</option>
+                        <option value="rating-low-high">Rating: Low → High</option>
+                        <option value="rating-high-low">Rating: High → Low</option>
+                    </select>
+                </div>
             </div>
+
 
             <ul className="product-grid">
                 {paginatedProducts.map((currProd) => {
@@ -214,9 +223,9 @@ export const Products = () => {
             </ul>
 
             <div className="pagination">
-                <button 
-                disabled= {currentPage == 1} 
-                onClick={()=> setCurrentPage((p)=> p-1)}
+                <button
+                    disabled={currentPage == 1}
+                    onClick={() => setCurrentPage((p) => p - 1)}
                 >
                     Prev
                 </button>
@@ -233,14 +242,14 @@ export const Products = () => {
 
                 {currentPage > 3 && (
                     <>
-                        <button onClick={()=> setCurrentPage(1)}>1</button>
+                        <button onClick={() => setCurrentPage(1)}>1</button>
                         <span className="dots">...</span>
                     </>
                 )}
 
-                {getVisiblePages().map((page)=> (
+                {getVisiblePages().map((page) => (
                     <button key={page} className={currentPage === page ? "active" : ""}
-                    onClick={()=> setCurrentPage(page)}>
+                        onClick={() => setCurrentPage(page)}>
                         {page}
                     </button>
                 ))}
@@ -248,14 +257,14 @@ export const Products = () => {
                 {currentPage < totalPages - 2 && (
                     <>
                         <span className="dots">...</span>
-                        <button onClick={()=> setCurrentPage(totalPages)}>
+                        <button onClick={() => setCurrentPage(totalPages)}>
                             {totalPages}
                         </button>
                     </>
                 )}
 
                 <button disabled={currentPage === totalPages}
-                onClick={()=> setCurrentPage((p)=> p+1)}
+                    onClick={() => setCurrentPage((p) => p + 1)}
                 >
                     Next
                 </button>
