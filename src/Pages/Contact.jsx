@@ -23,7 +23,7 @@ export const Contact = () => {
                     <FaGooglePlusG />
 
                 </div>
-                <p className="copy" >&copy;{new Date().getFullYear()} ShopEase. Privacy Policy</p>
+                <p className="copy" >&copy;{new Date().getFullYear()} ShopEzzz. Privacy Policy</p>
             </div>
 
             {/* Right: Form */}
