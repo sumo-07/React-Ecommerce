@@ -3,7 +3,11 @@ import { getCategories, getProductData } from "../api/postApi";
 import { ProductCard } from "../components/UI/ProductCard";
 import "../components/css/product.css"
 import { useEffect, useMemo, useState } from "react";
+import { IoIosSettings } from "react-icons/io";
 export const Products = () => {
+
+    // filters
+    const [showFilters, setShowFilters]= useState(false);
 
     // search
     const [search, setSearch] = useState("");
@@ -124,6 +128,26 @@ export const Products = () => {
     }, [searchQuery, selectedCategory, sortPrice, sortRating]);
 
 
+    // pagination responsive logic
+    const MAX_VISIBLE_PAGES= 5;
+    const getVisiblePages= ()=> {
+        const pages= [];
+        let start= Math.max(1, currentPage - Math.floor(MAX_VISIBLE_PAGES / 2));
+        let end= start + MAX_VISIBLE_PAGES - 1;
+
+        if(end > totalPages){
+            end= totalPages;
+            start= Math.max(1, end - MAX_VISIBLE_PAGES + 1);
+        }
+
+        for(let i= start; i<= end; i++){
+            pages.push(i);
+        }
+
+        return pages;
+    }
+
+
 
     if (productLoading) {
         return (
@@ -197,7 +221,7 @@ export const Products = () => {
                     Prev
                 </button>
 
-                {Array.from({length: totalPages}, (_,i)=> (
+                {/* {Array.from({length: totalPages}, (_,i)=> (
                     <button 
                     key={i}
                     className={currentPage == i+1 ? "active" : ""}
@@ -205,7 +229,31 @@ export const Products = () => {
                     >
                         {i+1}
                     </button>
+                ))} */}
+
+                {currentPage > 3 && (
+                    <>
+                        <button onClick={()=> setCurrentPage(1)}>1</button>
+                        <span className="dots">...</span>
+                    </>
+                )}
+
+                {getVisiblePages().map((page)=> (
+                    <button key={page} className={currentPage === page ? "active" : ""}
+                    onClick={()=> setCurrentPage(page)}>
+                        {page}
+                    </button>
                 ))}
+
+                {currentPage < totalPages - 2 && (
+                    <>
+                        <span className="dots">...</span>
+                        <button onClick={()=> setCurrentPage(totalPages)}>
+                            {totalPages}
+                        </button>
+                    </>
+                )}
+
                 <button disabled={currentPage === totalPages}
                 onClick={()=> setCurrentPage((p)=> p+1)}
                 >

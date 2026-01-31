@@ -60,6 +60,16 @@
     justify-content: center;
     gap: 1rem;
     margin: 4rem 0;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: auto;
+
+
+    & .dots {
+        padding: 0.8rem;
+        font-size: 1.4rem;
+        color: #666;
+    }
 
     & button {
         padding: 0.8rem 1.4rem;
@@ -261,3 +271,14 @@
 }
 
 /* Product Card End */
+
+
+/* media queries */
+@media(max-width: 38rem){
+    /* 600 / 16 = 38 */
+    /* 38 x 16 =  608px */
+    .pagination button {
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+    }
+}
