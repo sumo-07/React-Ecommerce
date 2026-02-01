@@ -124,19 +124,17 @@
         font-size: 1.6rem;
         border-radius: 0.6rem;
         border: 1px solid #000;
-        background: #ffffff;
+        background: #000;
+        color: #fff;
         cursor: pointer;
-        transition:  background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+        transition: transform 0.1s ease;
         margin-top: 1rem;
         
         &:active{
             transform: scale(0.97);
         }
 
-        &:hover {
-            background-color: #000;
-            color: #ffffff;
-        }
+        
     }
 }
 
