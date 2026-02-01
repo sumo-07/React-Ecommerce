@@ -16,9 +16,9 @@ export const Footer = () => {
                     </p>
 
                     <div className="social-icons">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer"><FaDiscord /></a>
+                        <a href="https://github.com/sumo-07" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <a href="https://www.linkedin.com/in/ujjawal-singh-bisht-779677324/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" title="Discord: ujjawal4747"  aria-label="ujjawal4747"><FaDiscord /></a>
                     </div>
                 </div>
 
