@@ -85,17 +85,8 @@
         border: 1px solid #ddd;
         cursor: pointer;
         background-color: #fff;
-        transition: transform 0.15s ease;
-
-        &:active {
-            transform: scale(0.99);
-        }
     }
 }
-
-
-
-
 
 
 .filter-container {
