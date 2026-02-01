@@ -45,6 +45,11 @@ main {
 /* end */
 
 /* utitlity classe to fix the abundant gap below the pages */
+.page-top {
+    display: flex;
+    align-items: flex-start;
+}
+
 .page-center {
     display: flex;
     align-items: center;

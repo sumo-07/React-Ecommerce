@@ -70,48 +70,51 @@
 }
 
 /* Stock start */
-.details-stock{
+.details-stock {
     font-size: 1.4rem;
     margin: 1.2rem 0;
 }
 
-.in-stock{
+.in-stock {
     color: #16a34a;
     font-weight: 600;
 }
 
-.out-stock{
+.out-stock {
     color: #dc2626;
     font-weight: 600;
 }
+
 /* Stock End */
 
 /* Dimensions */
-.details-dimensions{
+.details-dimensions {
     margin: 1.6rem 0;
-    & h4{
+
+    & h4 {
         font-size: 1.6rem;
         margin-bottom: 0.4rem;
         color: #555;
     }
 
-    & p{
+    & p {
         font-size: 1.2rem;
         font-weight: 500;
     }
 }
 
-.details-extra{
+.details-extra {
     margin: 2rem 0;
     padding-top: 1.6rem;
     border-top: 0.1rem solid #e5e7eb;
-    & p{
+
+    & p {
         font-size: 1.4rem;
         color: #444;
         margin-bottom: 0.6rem;
     }
 
-    & strong{
+    & strong {
         color: #222;
     }
 }
@@ -139,4 +142,99 @@
         transform: translateY(0);
         box-shadow: 0 0.6rem 1.2rem rgba(37, 99, 235, 0.35);
     }
+}
+
+/* large */
+@media (max-width: 72rem) {
+
+    /* 1150 / 16 =  72 */
+    /* 72 * 16 =  1152px*/
+    .product-details-card {
+        gap: 4rem;
+        padding: 3.2rem;
+    }
+
+    .product-details-img img {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .product-details-info {
+        & h1 {
+            font-size: 2.6rem;
+        }
+    }
+
+    .details-price {
+        font-size: 2.4rem;
+    }
+}
+
+/* medium */
+@media (max-width: 55rem) {
+    /* 876 / 16 = 55 */
+    /* 55 x  16 = 880 */
+
+    .product-details-card {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .product-details-img {
+        display: flex;
+        justify-content: center;
+
+        & img {
+            width: 100%;
+            max-width: 32rem;
+            height: auto;
+            aspect-ratio: 1/1;
+        }
+    }
+
+    .product-details-info {
+        & h1 {
+            font-size: 2.4rem;
+        }
+    }
+
+    .details-price {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* small */
+@media (max-width: 38rem) {
+    /* 600 / 16 = 38 */
+    /* 38 x 16 = 608px */
+
+    .product-details-card {
+        padding: 2rem;
+        border-radius: 1.2rem;
+    }
+
+    .product-details-img {
+        & img {
+            max-width: 26rem;
+        }
+    }
+
+    .product-details-info {
+        & h1 {
+            font-size: 2.1rem;
+            text-align: center;
+        }
+    }
+
+    .details-brand, .details-category, .details-rating,
+    .details-price, .details-desc, .details-stock, .details-dimensions, .details-extra {
+        text-align: center;
+    }
+
+    .details-rating {
+        justify-content: center;
+    }
+
 }

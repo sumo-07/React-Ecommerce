@@ -32,7 +32,7 @@ export const ProductDetails = () => {
     const product = data.data;
 
     return (
-        <main className="container page-center">
+        <main className="container page-top">
             <div className="product-details-page">
                 <button className="go-back-btn" onClick={() => navigate(-1)}>
                     <IoArrowBack /> Back to Products
