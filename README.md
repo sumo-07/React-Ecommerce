@@ -165,6 +165,20 @@ http://localhost:5173
 
 ---
 
+### Routing Issue on Page Refresh (SPA)
+
+This project is a Single Page Application (SPA) built with React Router.  
+When refreshing or directly accessing routes like `/contact` or `/about`, the server may return a **404 error** because these routes are handled on the client side, not as physical files on the server.
+
+**Solution:**  
+A Netlify `_redirects` file is added to ensure all routes redirect to `index.html`, allowing React Router to manage navigation correctly.
+Add this content given below inside that file
+/* /index.html 200
+
+**This fixes broken links on page refresh and direct URL access.**
+
+---
+
 * GitHub: [https://github.com/sumo-07](https://github.com/sumo-07)
 
 ---
