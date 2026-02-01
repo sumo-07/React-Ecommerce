@@ -1,16 +1,170 @@
-# React + Vite
+# 🛒 React Ecommerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Ecommerce web application built using React + Vite.
+The project focuses on clean UI, well-organized project structure, reusable components, cart management using localStorage, advanced filtering & sorting functionality, and a scalable frontend architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+🔗 **Deployment Link:**
+[Shopezzz](https://shopezzz-ecom.netlify.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* 🏠 Home page with hero section
+* 🛍️ Product listing page with **filtering & sorting**
+* 🔍 Product details page
+* 🛒 Add to cart & cart management (**stored in localStorage**)
+* ➕ Increase / decrease item quantity
+* 🧾 Checkout page
+* 🔐 Login & Signup pages (UI only)
+* 📄 About & Contact pages
+* ❌ Error / 404 page (customizable)
+* 📱 **Fully responsive design (mobile, tablet, desktop)**
+* ♻️ Reusable & modular UI components
+
+---
+
+## 🧠 Tech Stack
+
+* **Frontend:** React.js
+* **Bundler:** Vite
+* **Styling:** CSS (custom responsive styles)
+* **Routing:** React Router
+* **State Management:** React Hooks
+* **Data Persistence:** Browser **localStorage**
+* **API Handling:** Public API utility
+* **Version Control:** Git & GitHub
+
+---
+
+## ✨ Key Highlights
+
+* 🧠 **Cart data persists using localStorage**, even after page refresh
+* 🔍 Advanced **search, category filtering & sorting**
+* 📱 Responsive UI optimized for **mobile, tablet & large screens**
+* 🧩 Clean component-based architecture
+* ⚡ Fast performance with Vite bundler
+* 🎯 Smooth user experience with hover & click feedback
+
+---
+
+## 📁 Project Structure
+
+```
+react_ecommerce/
+│
+├── public/
+│
+├── src/
+│   ├── api/
+│   │   └── postApi.jsx
+│   │
+│   ├── assets/
+│   │   └── react.svg
+│   │
+│   ├── components/
+│   │   ├── css/
+│   │   │   ├── about.css
+│   │   │   ├── auth.css
+│   │   │   ├── cart.css
+│   │   │   ├── contact.css
+│   │   │   ├── HeroSection.css
+│   │   │   ├── product.css
+│   │   │   └── productDetails.css
+│   │
+│   ├── layout/
+│   │   └── AppLayout.jsx
+│   │
+│   ├── UI/
+│   │   ├── CartControls.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── HeroSection.jsx
+│   │   └── ProductCard.jsx
+│   │
+│   ├── images/
+│   │   ├── about-people.webp
+│   │   ├── aboutEcommerce.webp
+│   │   ├── heroSection.webp
+│   │   └── websiteLogo.webp
+│   │
+│   ├── Pages/
+│   │   ├── About.jsx
+│   │   ├── Cart.jsx
+│   │   ├── cartUtil.js
+│   │   ├── Checkout.jsx
+│   │   ├── Contact.jsx
+│   │   ├── ErrorPage.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── ProductDetails.jsx
+│   │   ├── Products.jsx
+│   │   └── Signup.jsx
+│   │
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/sumo-07/React-Ecommerce.git
+```
+
+2. **Navigate to project directory**
+
+```bash
+cd react_ecommerce
+```
+
+3. **Install dependencies**
+
+```bash
+npm install
+```
+
+4. **Run the development server**
+
+```bash
+npm run dev
+```
+
+5. Open browser at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📈 Future Improvements
+
+* Backend-based authentication
+* Payment gateway integration
+* Wishlist feature
+* Admin dashboard
+* Order history & user profile
+
+---
+
+* GitHub: [https://github.com/sumo-07](https://github.com/sumo-07)
+
+---
