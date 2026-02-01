@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getCart, removeFromCart, updateQuantity } from "./cartUtil"
 import "../components/css/cart.css"
 import { MdDeleteOutline } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 export const Cart = () => {
     const [cart, setCart] = useState([]);
@@ -41,7 +42,10 @@ export const Cart = () => {
                         {cart.map((item) => {
                             return (
                                 <li key={item.id} className="cart-item">
-                                    <img src={item.thumbnail} alt={item.title} />
+                                    <NavLink to={`/product/${item.id}`} className="cart-img-link">
+
+                                        <img src={item.thumbnail} alt={item.title} />
+                                    </NavLink>
 
                                     <div className="cart-info">
                                         <h3>{item.title}</h3>
@@ -53,7 +57,7 @@ export const Cart = () => {
                                             <span>{item.quantity}</span>
 
                                             <button onClick={() => handleQuantity(item.id, 1)}> + </button>
-                                            
+
                                             <button className="remove-btn" onClick={() => handleRemove(item.id)}>
                                                 <MdDeleteOutline />
                                             </button>

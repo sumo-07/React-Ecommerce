@@ -35,7 +35,7 @@ export const ProductDetails = () => {
         <main className="container page-top">
             <div className="product-details-page">
                 <button className="go-back-btn" onClick={() => navigate(-1)}>
-                    <IoArrowBack /> Back to Products
+                    <IoArrowBack /> Back
                 </button>
 
                 <div className="product-details-card">
