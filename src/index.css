@@ -27,6 +27,29 @@ a{
     text-decoration: none;
 }
 
+/*  start  
+* to make the footer go to the bottom */
+html, 
+body{
+    height: 100%;
+}
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+/* end */
+
+/* utitlity classe to fix the abundant gap below the pages */
+.page-center {
+    display: flex;
+    align-items: center;
+}
+
 
 /* animation for every page */
 @keyframes fadeIn {

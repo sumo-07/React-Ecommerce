@@ -9,7 +9,7 @@
             #f8fbff 0%,
             #e8f0ff 50%,
             #ffffff 100%);
-    min-height: 80vh;
+    min-height: auto;
     border-radius: 1rem;
     animation: fadeIn 0.8s ease;
 }
@@ -82,45 +82,45 @@
 }
 
 /* Large devices */
-@media (max-width: 72rem){
+@media (max-width: 72rem) {
     /* 1150 / 16 =  72 */
     /* 72 * 16 =  1152px*/
 
-    html{
+    html {
         /* 9 / 16 =  56.25% */
-        font-size:  56.25%;
+        font-size: 56.25%;
     }
 
-    .hero{
-        
+    .hero {
+
         padding: 4rem 5rem;
         gap: 3rem;
     }
 
-    .hero-image img{
+    .hero-image img {
         width: 42rem;
     }
 }
 
 /* medium */
-@media (max-width: 55rem){
+@media (max-width: 55rem) {
     /* 876 / 16 = 55 */
     /* 55 x  16 = 880 */
 
-    
-    .hero-content{
+
+    .hero-content {
         max-width: 100%;
 
-        & h1{
+        & h1 {
             font-size: 2.8rem;
         }
 
-        & p{
+        & p {
             font-size: 1.5rem;
         }
     }
 
-    .hero-image img{
+    .hero-image img {
         width: 100%;
         max-width: 50rem;
     }
@@ -128,26 +128,25 @@
 
 
 /* small */
-@media (max-width: 38rem){
+@media (max-width: 38rem) {
     /* 600 / 16 = 38 */
     /* 38 x 16 = 608px */
 
-    .hero{
-        min-height: auto;
+    .hero {
+        /* min-height: auto; */
         flex-direction: column-reverse;
         padding: 3rem 2rem;
         gap: 2.5rem;
     }
 
-    .hero-content{
-        & h1{
+    .hero-content {
+        & h1 {
             font-size: 2.4rem;
         }
     }
 
-    .hero-btn{
+    .hero-btn {
         padding: 1.2rem 2.8rem;
         font-size: 1.4rem;
     }
 }
-

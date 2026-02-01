@@ -5,7 +5,7 @@ import "../components/css/auth.css";
 
 export const Signup = () => {
     return (
-        <div className="container">
+        <main className="container">
             <div className="auth-container">
                 {/* Left Pannel */}
                 <div className="auth-left">
@@ -45,13 +45,13 @@ export const Signup = () => {
 
                     <p className="or">or signup with</p>
 
-                    <div className="social-icons">
+                    <div className="auth-social-icons">
                         <FaFacebookF />
                         <FaGoogle />
                         <FaLinkedin />
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };

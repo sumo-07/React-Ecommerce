@@ -4,7 +4,7 @@ import "../components/css/auth.css";
 
 export const Login = () => {
     return (
-        <div className="container">
+        <main className="container">
             <div className="auth-container">
                 <div className="auth-left">
                     <h2>Welcome back!</h2>
@@ -35,6 +35,6 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
