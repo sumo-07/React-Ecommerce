@@ -53,11 +53,12 @@ export const Cart = () => {
                                             <span>{item.quantity}</span>
 
                                             <button onClick={() => handleQuantity(item.id, 1)}> + </button>
+                                            
+                                            <button className="remove-btn" onClick={() => handleRemove(item.id)}>
+                                                <MdDeleteOutline />
+                                            </button>
                                         </div>
 
-                                        <button className="remove-btn" onClick={() => handleRemove(item.id)}> 
-                                            <MdDeleteOutline />    
-                                        </button>
                                     </div>
                                 </li>
                             );
