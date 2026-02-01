@@ -126,12 +126,80 @@
         border: 1px solid #000;
         background: #ffffff;
         cursor: pointer;
-        transition: 0.3s ease;
+        transition:  background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
         margin-top: 1rem;
+        
+        &:active{
+            transform: scale(0.97);
+        }
 
         &:hover {
             background-color: #000;
             color: #ffffff;
         }
+    }
+}
+
+/* medium */
+@media (max-width: 55rem){
+    /* 876 / 16 = 55 */
+    /* 55 x  16 = 880 */
+
+    .contact-page{
+        flex-direction: column;
+        gap: 4rem;
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+    }
+
+}
+
+/* small */
+@media(max-width: 38rem) {
+
+    /* 600 / 16 = 38 */
+    /* 38 x 16 =  608px */
+    .contact-page{
+        gap: 3rem;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .contact-left h2,
+    .contact-right h2{
+        text-align: center;
+    }
+
+    .contact-left h3{
+        text-align: center;
+    }
+
+    .contact-map iframe {
+        height: 26rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .contact-socials{
+        justify-content: center;
+    }
+
+    .copy{
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+
+    .contact-form{
+        gap: 1.2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 1.2rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+        margin-top: 1.5rem;
     }
 }
