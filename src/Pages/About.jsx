@@ -13,7 +13,7 @@ export const About = () => {
                     <div className="about-text">
                         <h1>About Us</h1>
                         <p>
-                            At <strong>ShopEase</strong>, we believe that shopping should be seamless, enjoyable,
+                            At <strong>ShopEzzz</strong>, we believe that shopping should be seamless, enjoyable,
                             and accessible to everyone. We are committed to offering high-quality products,
                             transparent pricing, and a delightful shopping experience.
                         </p>
